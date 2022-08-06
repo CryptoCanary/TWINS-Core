@@ -568,10 +568,13 @@ CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey, CWallet* pwallet)
 
     const int nHeightNext = chainActive.Tip()->nHeight + 1;
     static int nLastPOWBlock = Params().LAST_POW_BLOCK();
-
+    static int nEmergencyPOWstart = Params().EMERGENCY_POW_START();
+    static int nEmergencyPOWend = Params().EMERGENCY_POW_END();
+    if (nHeightNext > nEmergencyPOWstart && nHeightNext <= nEmergencyPOWend)
+    { /* Emergency POW passthru */ }
     // If we're building a late PoW block, don't continue
     // PoS blocks are built directly with CreateNewBlock
-    if ((nHeightNext > nLastPOWBlock)) {
+    else if ((nHeightNext > nLastPOWBlock)) {
         LogPrintf("%s: Aborting PoW block creation during PoS phase\n", __func__);
         // sleep 1/2 a block time so we don't go into a tight loop.
         MilliSleep((Params().TargetSpacing() * 1000) >> 1);

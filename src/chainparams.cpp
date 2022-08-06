@@ -229,6 +229,8 @@ public:
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 400;
+        nEmergencyPOWstart = 908000;
+        nEmergencyPOWend = 908001;
         nModifierUpdateBlock = 200;
         nZerocoinStartHeight = 15000000;
         nZerocoinStartTime = 4070908800;
@@ -360,6 +362,8 @@ public:
         nTargetTimespan = 1 * 60;
         nTargetSpacing = 2 * 60;  // TWINS: 2 minute
         nLastPOWBlock = 400;
+        nEmergencyPOWstart = 908000;
+        nEmergencyPOWend = 908001;
         nMaturity = 15;
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
