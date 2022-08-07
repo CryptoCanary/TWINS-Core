@@ -167,6 +167,8 @@ protected:
     int64_t nTargetTimespan;
     int64_t nTargetSpacing;
     int nLastPOWBlock;
+    int nEmergencyPOWstart;
+    int nEmergencyPOWend;
     int nMasternodeCountDrift;
     int nMaturity;
     int nModifierUpdateBlock;
